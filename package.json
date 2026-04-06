@@ -3,7 +3,7 @@
   "displayName": "Notes",
   "description": "Syntax highlighting for simple notes in Visual Studio Code",
   "icon": "images/icon.png",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "publisher": "canadaduane",
   "repository": "https://github.com/canadaduane/vscode-notes",
   "engines": {
@@ -15,6 +15,11 @@
   "activationEvents": [
     "*"
   ],
+  "scripts": {
+    "build": "vsce package",
+    // Example: npm run install -- 1.3.1
+    "install": "code --install-extension notes-$1.vsix"
+  },
   "main": "./vscode/extension",
   "contributes": {
     "configuration": {

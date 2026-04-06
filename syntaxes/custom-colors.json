@@ -60,6 +60,13 @@
           }
       },        
       {
+          // Arrow (->)
+          "scope": "markup.arrow.notes",
+          "settings": {
+              "foreground": "#4fc1ffff"
+          }
+      },
+      {
           // Exclamation Mark
           "scope": "invalid.deprecated.notes",
           "settings": {

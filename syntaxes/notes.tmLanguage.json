@@ -55,6 +55,25 @@
       }
     },
     {
+      "comment": "Action Item Arrow",
+      "name": "nothing.notes",
+      "match": "(\\[)(\\->)(\\]) (.*)$",
+      "captures": {
+        "1": {
+          "name": "keyword.operator.notes"
+        },
+        "2": {
+          "name": "markup.arrow.notes"
+        },
+        "3": {
+          "name": "keyword.operator.notes"
+        },
+        "4": {
+          "name": "markup.arrow.notes"
+        }
+      }
+    },
+    {
       "comment": "Action Item Disabled",
       "name": "nothing.notes",
       "match": "(\\[)(x)(\\]) (.*)$",

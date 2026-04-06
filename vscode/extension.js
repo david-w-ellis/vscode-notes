@@ -125,7 +125,8 @@ exports.activate = async function activate(context) {
   const nextStateLookup = {
     "[ ]": "[√]",
     "[√]": "[!]",
-    "[!]": "[x]",
+    "[!]": "[->]",
+    "[->]": "[x]",
     "[x]": "[ ]",
   };
 
@@ -161,13 +162,13 @@ exports.activate = async function activate(context) {
         let lineNo = selection.start.line;
         while (lineNo <= selection.end.line) {
           const line = editor.document.lineAt(lineNo);
-          const m = line.text.match(/^\s*(\[.?\])/);
+          const m = line.text.match(/^\s*(\[.{0,2}?\])/);
           if (m) {
             const braceMatch = m[1];
             const position = line.text.indexOf(braceMatch);
             const range = new Range(
               new Position(lineNo, position),
-              new Position(lineNo, position + 3)
+              new Position(lineNo, position + braceMatch.length)
             );
             const newText = nextStateFn(braceMatch);
             editBuilder.replace(range, newText);
